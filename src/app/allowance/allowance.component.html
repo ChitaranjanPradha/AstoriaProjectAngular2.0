@@ -1,0 +1,101 @@
+<h1>{{title}}</h1>
+
+<img class="img-responsive" src="https://www.astoriasolutions.com/images/logo.png" *ngIf="showLogo">
+<div *ngIf="showallowanceLoginPage">
+  <form [formGroup]="validateForm">
+    <table>
+      <tr>
+        <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="User Name*" formControlName="UserId" id="UserId" [(ngModel)]="user.userName" required>
+        <mat-error *ngIf="hasError('UserId', 'required')">Enter User Name</mat-error>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="outline">
+        <!-- <input matInput type="password" placeholder="Password*" formControlName="Password" id="Password" [(ngModel)]="user.password" required> -->
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" id="Password" [(ngModel)]="user.password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="hasError('Password', 'required')">Enter Password</mat-error>
+        </mat-form-field>
+      </tr>
+      <tr><input type="checkbox">Remember Me</tr>
+      <tr align="center">
+        <button mat-raised-button color="primary" (click)="Login()">Login</button>
+      </tr>
+    </table>
+  </form>
+</div>
+<div *ngIf="showAllowanceHome" id="div1">
+  <h1>{{DateTime | date:'shortTime'}}</h1>
+  <table style="display: inline-block;">
+    <tr>
+      <td>Allowance:</td>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Allowance</mat-label>
+          <mat-select id="allowanceName"
+          [(ngModel)]="allowID">
+            <mat-option *ngFor="let allowance of AllowanceList" [value]="allowance.allowanceId">
+              {{allowance.allowanceName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>Allowance Amount:</td>
+      <td>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" matInput id="allowAmount">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr class="center">
+      <button mat-raised-button color="primary" (click)="saveAllowance()">Done</button>
+    </tr>
+  </table>
+  </div>
+  <div id="div2" *ngIf="showAllowanceHome">
+  <!-- <ng-container matColumnDef="employeeName">
+    <mat-header-cell *matHeaderCellDef> Employee Name </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+        <mat-checkbox type="checkbox" [(ngModel)]="element.employeeName">
+        </mat-checkbox>
+    </mat-cell>
+</ng-container> -->
+<!-- <mat-checkbox></mat-checkbox> -->
+    <table mat-table [dataSource]="dataSource" style="float: left;">
+
+        <!-- <ng-container matColumnDef="allowance">
+          <th mat-header-cell *matHeaderCellDef>
+            <h3>Allowance :</h3>
+            <mat-form-field appearance="outline">
+              <mat-label>Select Allowance</mat-label>
+              <mat-select id="allowanceName"
+              [(ngModel)]="allowID">
+                <mat-option *ngFor="let allowance of AllowanceList" [value]="allowance.allowanceId">
+                  {{allowance.allowanceName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </th>
+        </ng-container> -->
+
+    <div >
+      <ng-container matColumnDef="employeeName">
+        <th *matHeaderCellDef >Employee Name</th>
+        <tr *matCellDef="let element">
+        <input type="checkbox" value="{{element.employeekey}}">
+        <td mat-cell>{{ element.employeeName }}</td>
+      </tr>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </div>
+  </table>
+  <!-- <button mat-raised-button color="primary" (click)="saveAllowance()">Done</button> -->
+</div>
+    <!-- <button (click)="Back()">Back</button> -->

@@ -1,0 +1,11 @@
+<!-- Write your idea : <br> <textarea style="height: 80px; width: 300px;"> </textarea> <br> <br>
+Add screenshot : <input type="file"> <br> <br>
+<div>
+  <button>Submit</button> <button mat-dialog-close>Cancel</button>
+</div> -->
+<input type="file" (change)="onFileSelect($event)" multiple />
+<button (click)="uploadFiles()">Upload Files</button>
+<button (click)="close()"></button>
+
+
+

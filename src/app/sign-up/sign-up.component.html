@@ -1,0 +1,69 @@
+<img class="img-responsive" src="https://www.astoriasolutions.com/images/logo.png">
+<div class="contentCenter">
+  <form [formGroup]="validateForm">
+    <table>
+        <!-- <div style="text-align: center;text-align: center;
+        font-size: x-large;
+        font-weight: 500; margin-bottom: 10px;">
+          <span>Sign Up</span>
+        </div> -->
+
+        <tr>
+            <mat-form-field appearance="outline">
+              <input matInput type="text" placeholder="First Name*" formControlName="FirstName" id="FirstName"
+                [(ngModel)]="credentials.firstName" required>        
+              <mat-error *ngIf="hasError('FirstName', 'required')">Enter First Name</mat-error>
+            </mat-form-field>
+          </tr>
+        <tr>
+            <mat-form-field appearance="outline">
+              <input matInput type="text" placeholder="Last Name*" formControlName="LastName" id="LastName"
+                [(ngModel)]="credentials.lastName" required>        
+              <mat-error *ngIf="hasError('LastName', 'required')">Enter Last Name</mat-error>
+            </mat-form-field>
+          </tr>
+        <tr>
+            <mat-form-field appearance="outline">
+              <input matInput type="text" placeholder="Email*" formControlName="Email" id="Email"
+                [(ngModel)]="credentials.email" required>        
+              <mat-error *ngIf="hasError('Email', 'required')">Enter Email</mat-error>
+            </mat-form-field>
+          </tr>
+
+      <tr>
+        <mat-form-field appearance="outline">
+          <input matInput type="text" placeholder="User Name*" formControlName="UserId" id="UserId"
+            [(ngModel)]="credentials.userName" required>
+            <!-- <button [attr.aria-pressed]="hide" matSuffix> -->
+              <span matSuffix>
+                <mat-icon >person</mat-icon>
+              </span>           
+          <mat-error *ngIf="hasError('UserId', 'required')">Enter User Name</mat-error>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="outline">
+          <!-- <input matInput type="password" placeholder="Password*" formControlName="Password" id="Password" [(ngModel)]="user.password" required> -->
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" id="Password" placeholder="Password*"
+            [(ngModel)]="credentials.password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="hasError('Password', 'required')">Enter Password</mat-error>
+        </mat-form-field>
+      </tr>
+      <!-- <tr><input type="checkbox">Remember Me</tr> -->
+      <tr>
+        <td>
+          <button style="width: 100%;" mat-raised-button color="primary" (click)="createAccount()">Create Account</button>
+        </td>
+      </tr>
+      <tr>
+        <td >
+          <button style="width: 100%;" mat-raised-button color="primary" routerLink="/login-page">Already have an Account?</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

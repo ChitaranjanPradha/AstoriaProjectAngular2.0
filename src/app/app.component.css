@@ -1,0 +1,15 @@
+.heading{
+  margin-left: 10px;
+}
+.sidenavcolour{
+  background: rgb(219, 223, 226);
+}
+
+.mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

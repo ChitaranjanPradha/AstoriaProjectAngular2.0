@@ -1,0 +1,47 @@
+.back{
+  background-image: url(https://astorjob.blob.core.windows.net/astoriasolutions/home.png);
+  /* position: absolute; */
+  height: 90%;
+  width: 100%;
+  background-size: cover;
+}
+.whitetext{
+  color: white;
+  padding-top: 45px;
+  padding-left: 30px;
+  text-align: left;
+}
+.how{
+  font-weight: bold;
+  color: rgb(51, 54, 243);
+  font-size: 20px;
+}
+.blue{
+  color: blue;
+}
+.sidemg{
+  /* display: flex; */
+  height: 10px;
+  width: 10px;
+}
+.adj{
+  margin-left: 20px;
+  width: 60%;
+}
+.banner{
+  color:white;
+  font-weight: bold;
+  font-size: 35px;
+  padding-top: 45px;
+  padding-left: 30px;
+  text-align: left;
+}
+.padding{
+  padding-top: 15px;
+}
+.check{
+  color: white;
+  padding-top: 33px;
+  font-size: 21px;
+  padding-left: 30px;
+}

@@ -1,0 +1,29 @@
+h1{
+  text-align: center;
+  font-weight: bold;
+  padding-top: 20px;
+}
+.img-responsive{
+  height: 10%;
+padding-left: 42%;
+padding-top: 1%;
+}
+table{
+ padding-left:43% ;
+ padding-top:3% ;
+}
+#div1{
+  width: 50%;
+  float:left;
+}
+#div2{
+  width: 50%;
+float: right;
+}
+.mat-table {
+  background: #fafcfc;
+}
+.example-margin {
+  margin: 0 12px;
+}
+
